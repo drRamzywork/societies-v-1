@@ -1,0 +1,129 @@
+.icon,
+.icon1 {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 1081px;
+  object-fit: cover;
+}
+.icon1 {
+  left: 1081px;
+  width: 403px;
+}
+.icon2,
+.icon3,
+.parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.parent {
+  filter: blur(4px);
+  width: 1484px;
+  height: 348px;
+  opacity: 0.2;
+}
+.icon2,
+.icon3 {
+  height: 100%;
+  bottom: 0;
+  max-height: 100%;
+  width: 1081px;
+  object-fit: cover;
+}
+.icon3 {
+  left: 1081px;
+  width: 403px;
+}
+.group,
+.icon4,
+.icon5 {
+  position: absolute;
+  left: 0;
+}
+.group {
+  top: 338px;
+  filter: blur(4px);
+  width: 1484px;
+  height: 1520px;
+  opacity: 0.2;
+}
+.icon4,
+.icon5 {
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  max-height: 100%;
+  width: 1081px;
+  object-fit: cover;
+}
+.icon5 {
+  left: 1081px;
+  width: 403px;
+}
+.container {
+  position: absolute;
+  top: 1849px;
+  left: 0;
+  filter: blur(4px);
+  width: 1484px;
+  height: 1520px;
+  opacity: 0.2;
+}
+.frameParent {
+  width: 1484px;
+  height: 3369px;
+  position: relative;
+  display: none;
+  max-width: 100%;
+  z-index: 0;
+}
+.homePageChild {
+  width: 753px;
+  height: 529px;
+  position: absolute;
+  margin: 0 !important;
+  top: 1162px;
+  right: 101px;
+  border-radius: var(--br-13xl);
+}
+.frameContainer {
+  align-self: stretch;
+  align-items: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frameContainer,
+.frameGroup,
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.frameGroup {
+  align-self: stretch;
+  align-items: flex-end;
+  gap: var(--gap-lgi-7);
+  max-width: 100%;
+}
+.homePage {
+  width: 100%;
+  position: relative;
+  background-color: var(--w-background);
+  overflow: hidden;
+  align-items: flex-start;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-41xl);
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 750px) {
+  .homePage {
+    gap: var(--gap-11xl);
+  }
+}
