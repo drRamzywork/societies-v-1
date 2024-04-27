@@ -8,12 +8,33 @@ import FrameComponent from "../components/frame-component";
 import Fotter from "../components/fotter";
 import styles from "./index.module.css";
 import DataGatherer from "../components/data-gatherer";
+import { useEffect, useState } from "react";
 
 const OPTIONS = { loop: true };
 const SLIDE_COUNT = 5;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const HomePage = () => {
+  const [societiesListSocieties, setSocietiesListSocieties] = useState([]);
+
+  useEffect(() => {
+    const fetchAllSocietiesListSocieties = async () => {
+      try {
+        const response = await fetch(
+          "https://map.rmz.one/api/list-regions-with-societies"
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setSocietiesListSocieties(data.data.data); // Set the fetched data into state
+      } catch (error) {
+        console.error("Failed to fetch AllSocietiesList:", error);
+      }
+    };
+
+    fetchAllSocietiesListSocieties();
+  }, []);
   return (
     <div className={styles.homePage}>
       <div className={styles.frameParent}>
@@ -37,7 +58,7 @@ const HomePage = () => {
           <FrameComponent5 slides={SLIDES} options={OPTIONS} />
           <Newsbar />
         </section>
-        <FrameComponent3 />
+        <FrameComponent3 societiesListSocieties={societiesListSocieties} />
         <FrameComponent2 />
         <FrameComponent1 />
         <FrameComponent />

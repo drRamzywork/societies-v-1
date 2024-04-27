@@ -151,12 +151,14 @@
 }
 .nonCategorizedIcon {
   height: 32px;
-  width: 32px;
+  width: 100%;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
   object-fit: contain;
   z-index: 2;
+  background-color: transparent;
+  border: none;
 }
 .triangleTrio,
 .triangleTrioWrapper {
@@ -362,11 +364,15 @@
   gap: var(--gap-xl);
   min-width: 376px;
   max-width: 100%;
+  height: 529px;
+  overflow-y: scroll;
 }
 .div7 {
   position: relative;
   font-weight: 500;
   z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 .frameInner {
   position: absolute;
@@ -456,14 +462,15 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: var(--padding-83xl) var(--padding-167xl);
+  /* padding: var(--padding-83xl) var(--padding-167xl); */
   box-sizing: border-box;
   position: relative;
-  min-width: 517px;
-  min-height: 505px;
+  width: 517px;
+  height: 505px;
   max-width: 100%;
   z-index: 1;
   font-size: var(--font-size-base);
+  padding: 0;
 }
 .imageHub,
 .imageHubWrapper {
@@ -488,6 +495,7 @@
   color: var(--color-black);
   font-family: var(--font-cairo);
 }
+
 .frameParent {
   flex: 1;
   display: flex;
@@ -542,7 +550,7 @@
   .containerCluster,
   .parent5 {
     box-sizing: border-box;
-    min-width: 100%;
+    width: 100%;
   }
   .containerCluster {
     padding-top: var(--padding-xl);
@@ -581,4 +589,20 @@
   .imageHub {
     gap: var(--gap-3xl);
   }
+}
+
+.markName {
+  z-index: 1;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 25px;
+  border: 1px solid white;
+  left: 40px;
+  position: absolute;
+  text-wrap: nowrap;
+  min-width: 50px;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  font-size: 24px;
+  font-weight: 500;
 }
