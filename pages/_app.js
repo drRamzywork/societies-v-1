@@ -1,9 +1,7 @@
 import { Fragment, useEffect } from "react";
 import Head from "next/head";
-
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import "./global.css";
 
 export default function MyApp(props) {
@@ -25,6 +23,10 @@ export default function MyApp(props) {
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </Head>
       <ThemeProvider theme={muiTheme}>

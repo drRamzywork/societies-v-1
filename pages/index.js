@@ -9,6 +9,10 @@ import Fotter from "../components/fotter";
 import styles from "./index.module.css";
 import DataGatherer from "../components/data-gatherer";
 
+const OPTIONS = { loop: true };
+const SLIDE_COUNT = 5;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
 const HomePage = () => {
   return (
     <div className={styles.homePage}>
@@ -30,7 +34,7 @@ const HomePage = () => {
       <main className={styles.frameGroup}>
         <section className={styles.frameContainer}>
           <DataGatherer />
-          <FrameComponent5 />
+          <FrameComponent5 slides={SLIDES} options={OPTIONS} />
           <Newsbar />
         </section>
         <FrameComponent3 />

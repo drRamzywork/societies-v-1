@@ -283,18 +283,18 @@
 .ellipseParent3,
 .frameParent,
 .newsbar {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 100%;
+  max-width: 100%; */
 }
 .frameParent {
-  width: 1421px;
+  /* width: 1421px;
   overflow-x: auto;
   flex-shrink: 0;
   gap: var(--gap-15xl);
-  debug_commit: 1de1738;
+  debug_commit: 1de1738; */
 }
 .component1,
 .newsbar {

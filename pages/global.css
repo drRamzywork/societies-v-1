@@ -193,3 +193,61 @@ a {
   /* Effects */
   --shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
 }
+
+/* Emberla swiper */
+
+/* This is frame-component5.module.css */
+
+.mySwiper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 500px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 848px !important;
+  height: 424px !important;
+  margin: 5px;
+  transition: all 0.5s ease !important;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  border-radius: 24px;
+  height: 100%;
+}
+
+.slideInactive {
+  opacity: 0 !important;
+}
+
+/* Add these styles to your frame-component5.module.css */
+
+/* Set a default opacity for all slides */
+.swiper-slide {
+  opacity: 0.5;
+  width: 500px;
+  /* transform: scale(0.5) !important; */
+}
+
+/* Make only the active slide fully opaque */
+.swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+
+/* Adjust the size of the images and slides to fit your design */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover; /* This will ensure images cover their slide area */
+}
+
+/* You may want to add more styles to match the screenshot, like rounded corners */
+.swiper-slide {
+  border-radius: 10px; /* This adds rounded corners to the slides */
+  overflow: hidden; /* This ensures the images don't overflow the border-radius */
+}

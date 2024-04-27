@@ -1,4 +1,5 @@
 import styles from "./newsbar.module.css";
+import Marquee from "react-fast-marquee";
 
 const Newsbar = () => {
   return (
@@ -6,13 +7,53 @@ const Newsbar = () => {
       <div className={styles.newsbarChild} />
       <div className={styles.component1}>
         <div className={styles.frameParent}>
-          <div className={styles.parent}>
-            <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
-            <div className={styles.ellipseWrapper}>
-              <div className={styles.frameChild} />
+          <Marquee
+            speed={200}
+            pauseOnHover={true}
+            gradient={true}
+            gradientColor={"#265fa22b"}
+            gradientWidth={100}
+            pauseOnClick={true}
+          >
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
             </div>
-          </div>
-          <div className={styles.group}>
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
+            </div>
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
+            </div>
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
+            </div>
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
+            </div>
+            <div className={styles.parent}>
+              <div className={styles.div}>زياده عدد المسلمين 200 فرد اليوم</div>
+              <div className={styles.ellipseWrapper}>
+                <div className={styles.frameChild} />
+              </div>
+            </div>
+          </Marquee>
+
+          {/* <div className={styles.group}>
             <div className={styles.div1}>زياده عدد المسلمين 200 فرد اليوم</div>
             <div className={styles.ellipseContainer}>
               <div className={styles.frameItem} />
@@ -47,7 +88,7 @@ const Newsbar = () => {
           <div className={styles.ellipseParent3}>
             <div className={styles.frameChild5} />
             <div className={styles.div8}>زياده عدد المسلمين 200 فرد اليوم</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
