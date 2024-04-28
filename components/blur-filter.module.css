@@ -2,6 +2,8 @@
 .div1,
 .mapIcon {
   position: relative;
+  width: 100%;
+  text-align: center;
 }
 .div1,
 .mapIcon {
@@ -65,7 +67,6 @@
   padding: var(--padding-7xs) 0 0;
 }
 .alCommunitygmailcomParent {
-  align-self: stretch;
   flex-direction: row;
   gap: var(--gap-8xs);
 }
@@ -100,16 +101,15 @@
   gap: var(--gap-8xs);
 }
 .dropShadowFilter1 {
-  align-self: stretch;
   justify-content: flex-end;
   padding: 0 var(--padding-27xl) 0 var(--padding-28xl);
 }
 .opacityFilter {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 .grayscaleFilter {
   align-self: stretch;
@@ -127,7 +127,7 @@
   justify-content: flex-start;
 }
 .hueRotateFilter {
-  width: 274px;
+  width: 100%;
   flex-direction: column;
 }
 .saturationFilter {
@@ -138,7 +138,7 @@
   position: relative;
 }
 .contrastFilter {
-  width: 774px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

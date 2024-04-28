@@ -35,6 +35,7 @@ const HomePage = () => {
 
     fetchAllSocietiesListSocieties();
   }, []);
+
   return (
     <div className={styles.homePage}>
       <div className={styles.frameParent}>

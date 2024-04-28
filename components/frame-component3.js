@@ -193,7 +193,7 @@ const FrameComponent3 = ({ societiesListSocieties }) => {
                       mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
                     >
                       <div className="societie">
-                        <div className="RoundedMarkIcon">
+                        <div className={styles.RoundedMarkIcon}>
                           <CustomMarker
                             center={mapCenter}
                             lat={society.lat}

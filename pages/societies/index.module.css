@@ -113,17 +113,15 @@
 .frameGroup,
 .frameParent1,
 .frameWrapper {
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   max-width: 100%;
 }
 .frameParent1 {
   flex: 1;
-  display: grid;
+  display: flex;
   justify-content: flex-start;
   gap: var(--gap-38xl);
-  min-width: 779px;
-  grid-template-columns: repeat(4, minmax(193px, 1fr));
 }
 .frameGroup,
 .frameWrapper {
@@ -154,7 +152,7 @@
   gap: var(--gap-mid);
 }
 .logicGateInner {
-  width: 1395px;
+  /* width: 1395px; */
   flex-direction: row;
   align-items: flex-start;
   padding: 0 var(--padding-28xl) var(--padding-5xs);
@@ -242,7 +240,7 @@
   justify-content: flex-start;
 }
 .logicGateChild {
-  width: 1395px;
+  /* width: 1395px; */
   flex-direction: row;
   padding: 0 var(--padding-28xl);
   box-sizing: border-box;

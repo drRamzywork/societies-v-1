@@ -1,18 +1,20 @@
 import styles from "./blur-filter.module.css";
 
-const BlurFilter = () => {
+const BlurFilter = ({ societyDetails }) => {
   return (
     <div className={styles.blurFilter}>
       <div className={styles.brightnessFilter}>
         <div className={styles.contrastFilter}>
           <div className={styles.saturationFilter}>
             <div className={styles.hueRotateFilter}>
-              <div className={styles.div}>جمعية الرياض العامة</div>
+              <div className={styles.div}>{societyDetails.name}</div>
               <div className={styles.grayscaleFilter}>
                 <div className={styles.opacityFilter}>
                   <div className={styles.dropShadowFilter}>
                     <div className={styles.glowFilter}>
-                      <div className={styles.div1}>الرياض</div>
+                      <div className={styles.div1}>
+                        {societyDetails.region.name}
+                      </div>
                       <div className={styles.mapWrapper}>
                         <img
                           className={styles.mapIcon}
@@ -26,6 +28,7 @@ const BlurFilter = () => {
                   <div className={styles.alCommunitygmailcomParent}>
                     <div className={styles.alCommunitygmailcom}>
                       Al-community@gmail.com
+                      {societyDetails.email}
                     </div>
                     <div className={styles.communicationWrapper}>
                       <img

@@ -4,32 +4,17 @@ import GroupComponent from "../../components/group-component";
 import Fotter from "../../components/fotter";
 import styles from "./index.module.css";
 
-const Frame = () => {
+const Frame = ({ societiesData }) => {
   return (
     <div className={styles.div}>
-      <div className={styles.frameParent}>
-        <div className={styles.parent}>
-          <img className={styles.icon} alt="" src="/6334210-1@2x.png" />
-          <img className={styles.icon1} alt="" src="/6334210-2@2x.png" />
-        </div>
-        <div className={styles.group}>
-          <img className={styles.icon2} alt="" src="/6334210-1-1@2x.png" />
-          <img className={styles.icon3} alt="" src="/6334210-2-1@2x.png" />
-        </div>
-        <div className={styles.container}>
-          <img className={styles.icon4} alt="" src="/6334210-1-1@2x.png" />
-          <img className={styles.icon5} alt="" src="/6334210-2-1@2x.png" />
-        </div>
-      </div>
       <main className={styles.logicGate}>
         <DataGatherer />
-        <OvalOrchard />
+        {/* <OvalOrchard /> */}
         <section className={styles.logicGateInner}>
           <div className={styles.frameDiv}>
-            <h2 className={styles.h2}>جمعيات الشرقية</h2>
             <div className={styles.frameWrapper}>
               <div className={styles.frameGroup}>
-                <div className={styles.frameContainer}>
+                {/* <div className={styles.frameContainer}>
                   <div className={styles.arrowLeftWrapper}>
                     <img
                       className={styles.arrowLeftIcon}
@@ -37,31 +22,14 @@ const Frame = () => {
                       src="/arrow-left1.svg"
                     />
                   </div>
-                </div>
+                </div> */}
                 <div className={styles.frameParent1}>
                   <GroupComponent
                     rectangle35="/rectangle-35@2x.png"
                     propBackgroundImage="url('/rectangle-35@2x.png')"
                     propPadding="0px var(--padding-38xl) 0px var(--padding-38xl-5)"
                     propPadding1="var(--padding-smi) var(--padding-12xs)"
-                  />
-                  <GroupComponent
-                    rectangle35="/rectangle-35@2x.png"
-                    propBackgroundImage="url('/rectangle-35@2x.png')"
-                    propPadding="0px var(--padding-40xl) 0px var(--padding-38xl-5)"
-                    propPadding1="var(--padding-smi) 0px"
-                  />
-                  <GroupComponent
-                    rectangle35="/rectangle-35@2x.png"
-                    propBackgroundImage="url('/rectangle-35@2x.png')"
-                    propPadding="0px var(--padding-40xl) 0px var(--padding-38xl-5)"
-                    propPadding1="var(--padding-smi) 0px"
-                  />
-                  <GroupComponent
-                    rectangle35="/rectangle-35@2x.png"
-                    propBackgroundImage="url('/rectangle-35@2x.png')"
-                    propPadding="0px var(--padding-38xl) 0px var(--padding-38xl-5)"
-                    propPadding1="var(--padding-smi) var(--padding-12xs)"
+                    societiesData={societiesData}
                   />
                 </div>
               </div>
@@ -69,7 +37,7 @@ const Frame = () => {
           </div>
         </section>
 
-        <section className={styles.logicGateChild}>
+        {/* <section className={styles.logicGateChild}>
           <div className={styles.parent1}>
             <h2 className={styles.h21}>جمعيات المدينة</h2>
             <div className={styles.frameWrapper1}>
@@ -112,11 +80,30 @@ const Frame = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
-      <Fotter logo1="/logo-1-11@2x.png" />
+      {/* <Fotter logo1="/logo-1-11@2x.png" /> */}
     </div>
   );
 };
 
 export default Frame;
+
+export async function getStaticProps() {
+  try {
+    const response = await fetch(
+      "https://map.rmz.one/api/list-regions-with-societies"
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return {
+      props: { societiesData: data.data.data }, // passed to the page component as props
+      revalidate: 10, // Incremental Static Regeneration (ISR) - revalidate every 10 seconds
+    };
+  } catch (error) {
+    console.error("Failed to fetch societies data:", error);
+    return { props: { societiesData: [] } };
+  }
+}

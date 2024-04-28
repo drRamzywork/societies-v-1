@@ -170,6 +170,7 @@ import styles from "./frame-component5.module.css";
 const FrameComponent5 = () => {
   return (
     <div
+      id="hero_sec"
       style={{
         width: "100%",
       }}
