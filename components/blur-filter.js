@@ -7,7 +7,7 @@ const BlurFilter = ({ societyDetails }) => {
         <div className={styles.contrastFilter}>
           <div className={styles.saturationFilter}>
             <div className={styles.hueRotateFilter}>
-              <div className={styles.div}>{societyDetails.name}</div>
+              <div className={styles.div}>{societyDetails?.name}</div>
               <div className={styles.grayscaleFilter}>
                 <div className={styles.opacityFilter}>
                   <div className={styles.dropShadowFilter}>
