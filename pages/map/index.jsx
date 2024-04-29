@@ -106,7 +106,6 @@ const Map = () => {
 
   if (!isLoaded) return <div>Loading Maps...</div>;
 
-  console.log(societiesListSocieties, "societiesListSocieties ")
   return (
     <section style={{ width: '100vw', height: '100vh' }}>
 

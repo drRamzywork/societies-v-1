@@ -188,10 +188,6 @@ const GroupComponent = ({
     [propPadding1]
   );
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
-  console.log(societiesData, "societiesData");
   return (
     <>
       {societiesData.map((area, index) => (
