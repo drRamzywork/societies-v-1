@@ -154,25 +154,10 @@ const Frame1 = ({ societyDetails }) => {
 export default Frame1;
 
 
-export async function getStaticPaths() {
-  const response = await fetch("https://map.rmz.one/api/list-regions-with-societies");
-  if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
-  }
-  const data = await response.json();
-
-  let paths = [];
-  data.data.data.forEach(region => {
-    region.societies.forEach(society => {
-      paths.push({ params: { id: society.id.toString() } });
-    });
-  });
-
-  return { paths, fallback: 'blocking' }; // using 'blocking' for new paths generation at request time
-}
 
 
-export async function getStaticProps(context) {
+
+export async function getServerSideProps(context) {
   const { id } = context.params;
   const url = `https://map.rmz.one/api/get-society/${id}`;
   const response = await fetch(url);
@@ -182,8 +167,7 @@ export async function getStaticProps(context) {
   const societyDetails = await response.json();
 
   return {
-    props: { societyDetails: societyDetails.data }, // passing society details as props to the page
-    revalidate: 10, // optionally use ISR
+    props: { societyDetails: societyDetails.data },
   };
 }
 
