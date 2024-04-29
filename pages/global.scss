@@ -253,3 +253,173 @@ a {
     overflow: hidden; /* This ensures the images don't overflow the border-radius */
   }
 }
+
+// map
+
+// .society-info {
+//   position: absolute;
+//   background-color: white;
+//   padding: 10px;
+//   border-radius: 24px;
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+//   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+//   opacity: 0;
+//   transform: scale(0.95);
+//   display: none;
+//   flex-direction: column;
+//   gap: 16px;
+//   align-items: center;
+//   justify-content: center;
+//   width: 500px;
+//   // height: 274px;
+//   box-shadow: 0px 0px 11px #00000059;
+//   z-index: 999999999999;
+
+//   .close {
+//     position: absolute;
+//     top: 16px;
+//     left: 10px;
+
+//     svg {
+//       width: 24px;
+//       height: 24px;
+//       opacity: (0.8);
+//     }
+//   }
+//   .info_container {
+//     min-width: 70%;
+//   }
+//   .title {
+//     p {
+//       color: #000000;
+//       font-family: var(--font-cairo);
+//       font-weight: 600;
+//       font-size: 16px;
+//     }
+//   }
+
+//   .img_container {
+//     // width: 100px;
+//     // height: 100px;
+
+//     img {
+//       width: 100%;
+//       height: 179px;
+//       object-fit: cover;
+//       border-radius: 24px;
+//     }
+//   }
+//   .icons_ {
+//     display: flex;
+//     width: auto;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-around;
+//     // height: 57%;
+//     width: 100%;
+//     .iocn_con2,
+//     .iocn_con {
+//       border-radius: 50%;
+
+//       svg {
+//         width: 50px;
+//         height: 50px;
+
+//         color: #24b174;
+//       }
+//     }
+
+//     .iocn_con2 {
+//       svg {
+//         border-radius: none !important;
+//         box-shadow: unset;
+//         color: red;
+//       }
+//     }
+//   }
+// }
+
+// .society-info.visible {
+//   display: flex; /* Show flex layout when visible */
+//   opacity: 1;
+//   transform: scale(1); /* Scale to normal size when visible */
+// }
+
+.society-info {
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0px 0px 11px #00000059;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0; /* Initial state is fully transparent */
+  transform: scale(0); /* Start from a scaled down state */
+  display: flex; /* Always use flex but will only show when 'visible' */
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  z-index: 999999999999;
+  visibility: hidden; /* Initially not visible */
+}
+
+.society-info.visible {
+  opacity: 1;
+  transform: scale(1); /* Scale to original size */
+  visibility: visible; /* Make visible */
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  svg {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+  }
+}
+
+.info_container {
+  min-width: 70%;
+}
+
+.title p {
+  color: #000000;
+  font-family: "Cairo", sans-serif; /* ensure you have the font available */
+  font-weight: 800;
+  padding-top: 16px;
+  font-size: 16px;
+}
+
+.img_container img {
+  width: 100%;
+  height: 179px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.icons_ {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.iocn_con,
+.iocn_con2 {
+  border-radius: 50%;
+  svg {
+    width: 50px;
+    height: 50px;
+    color: #24b174; /* Green */
+  }
+}
+
+.iocn_con2 svg {
+  border-radius: none !important;
+  box-shadow: unset;
+  color: red;
+}
