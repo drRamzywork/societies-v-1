@@ -356,10 +356,9 @@ a {
   transform: scale(0); /* Start from a scaled down state */
   display: flex; /* Always use flex but will only show when 'visible' */
   flex-direction: column;
-  gap: 16px;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  width: 213px;
   z-index: 999999999999;
   visibility: hidden; /* Initially not visible */
 }
@@ -388,9 +387,10 @@ a {
 .title p {
   color: #000000;
   font-family: "Cairo", sans-serif; /* ensure you have the font available */
-  font-weight: 800;
-  padding-top: 16px;
+  font-weight: 600;
   font-size: 16px;
+  text-align: right;
+  margin: 0;
 }
 
 .img_container img {
@@ -398,6 +398,7 @@ a {
   height: 179px;
   object-fit: cover;
   border-radius: 24px;
+  margin: 8px 0px;
 }
 
 .icons_ {
@@ -408,12 +409,20 @@ a {
   justify-content: space-around;
 }
 
+.close {
+  svg {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+  }
+}
+
 .iocn_con,
 .iocn_con2 {
   border-radius: 50%;
   svg {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     color: #24b174; /* Green */
   }
 }
@@ -422,4 +431,26 @@ a {
   border-radius: none !important;
   box-shadow: unset;
   color: red;
+}
+
+.filter_box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  * {
+    font-family: var(--font-cairo) !important;
+  }
+
+  .close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      opacity: 0.8;
+    }
+  }
 }

@@ -6,6 +6,8 @@ import { FaExclamationCircle } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import CustomMarker2 from "../../components/CustomMarker2";
 import { GrClose } from "react-icons/gr";
+import styles2 from './index.module.scss';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const mapContainerStyle = {
   width: "100%",
@@ -22,6 +24,7 @@ const Map = () => {
   const [selectedSocietiesData, setSelectedSocietiesData] = useState([]);
   const [societiesListSocieties, setSocietiesListSocieties] = useState([]);
   const [visibleSociety, setVisibleSociety] = useState(false);
+  const [IsIopen, setIsIopen] = useState(true);
 
 
   useEffect(() => {
@@ -107,8 +110,21 @@ const Map = () => {
   if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
-    <section style={{ width: '100vw', height: '100vh' }}>
-
+    <section className={styles2.mapSec} style={{ width: '100vw', height: '100vh' }}>
+      {IsIopen &&
+        <div className="filter_box">
+          <CheckBox societiesListSocieties={societiesListSocieties}
+            selectedSocietiesData={selectedSocietiesData}
+            setSelectedSocietiesData={setSelectedSocietiesData}
+          />
+          <div className="close" onClick={() => setIsIopen((prev) => !prev)}>
+            <GrClose />
+          </div>
+        </div>
+      }
+      <div className={styles2.close} onClick={() => setIsIopen((prev) => !prev)}>
+        <GiHamburgerMenu />
+      </div>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={mapCenter}
@@ -173,68 +189,66 @@ const Map = () => {
 
 
 
-        {societiesListSocieties.map((region) => (
-          region.societies.map((society) => (
-            <OverlayView
-              key={society.id}
-              position={{
-                lat: parseFloat(society.lat),
-                lng: parseFloat(society.long),
-              }}
-              mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-            >
-              <div className="societie" onClick={() => handleMarkerClick(society.id)}>
-                <div className={styles.RoundedMarkIcon}>
-                  <CustomMarker2
-                    center={mapCenter}
-                    lat={society.lat}
-                    lng={society.long}
-                    imageUrl={"/place.jpeg"}
-                    visibleSociety={visibleSociety}
-                    setVisibleSociety={setVisibleSociety}
+        {selectedSocietiesData.map((society) => (
+          <OverlayView
+            key={society.id}
+            position={{
+              lat: parseFloat(society.lat),
+              lng: parseFloat(society.long),
+            }}
+            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+          >
+            <div className="societie" onClick={() => handleMarkerClick(society.id)}>
+              <div className={styles.RoundedMarkIcon}>
+                <CustomMarker2
+                  center={mapCenter}
+                  lat={society.lat}
+                  lng={society.long}
+                  imageUrl={"/place.jpeg"}
+                  visibleSociety={visibleSociety}
+                  setVisibleSociety={setVisibleSociety}
 
-                  />
-                </div>
-                {visibleSociety === society.id && (
-                  <div className={`society-info ${visibleSociety === society.id ? 'visible' : ''}`}>
+                />
+              </div>
+              {visibleSociety === society.id && (
+                <div className={`society-info ${visibleSociety === society.id ? 'visible' : ''}`}>
 
-                    <div className="info_container">
-                      <div className="title">
-                        <p>{society.name}</p>
-                      </div>
-
-                      <div className="img_container">
-                        <img src={'/place.jpeg'} alt={society.name} />
-                      </div>
+                  <div className="info_container">
+                    <div className="title">
+                      <p>{society.name}</p>
                     </div>
 
-                    <div className="icons_">
-                      <a
-                        title="تفاصيل الجمعية"
-                        className="iocn_con">
-                        <FaExclamationCircle
-
-                          style={{ cursor: 'pointer' }}
-                          onClick={() => window.open(`/society/${society.id}`, '_blank')} />
-                      </a>
-                      <div
-                        title="الاحدثيات"
-                        className="iocn_con2" onClick={() => onLocationMarkerClick(society.lat, society.log)}>
-                        <FaLocationDot style={{ cursor: 'pointer' }}
-                        />
-                      </div>
-
-                    </div>
-
-                    <div className="close">
-                      <GrClose />
-
+                    <div className="img_container">
+                      <img src={'/place.jpeg'} alt={society.name} />
                     </div>
                   </div>
-                )}
-              </div>
-            </OverlayView>
-          ))))}
+
+                  <div className="icons_">
+                    <a
+                      title="تفاصيل الجمعية"
+                      className="iocn_con">
+                      <FaExclamationCircle
+
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => window.open(`/society/${society.id}`, '_blank')} />
+                    </a>
+                    <div
+                      title="الاحدثيات"
+                      className="iocn_con2" onClick={() => onLocationMarkerClick(society.lat, society.log)}>
+                      <FaLocationDot style={{ cursor: 'pointer' }}
+                      />
+                    </div>
+
+                  </div>
+
+                  <div className="close">
+                    <GrClose />
+                  </div>
+                </div>
+              )}
+            </div>
+          </OverlayView>
+        ))}
 
 
 
