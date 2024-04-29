@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 import DataGatherer from "../../../components/data-gatherer";
 
 const Frame1 = ({ societyDetails }) => {
-  console.log(societyDetails, "societyDetails")
+
   return (
     <div className={styles.div}>
 
@@ -155,47 +155,35 @@ export default Frame1;
 
 
 export async function getStaticPaths() {
-  try {
-    const response = await fetch("https://map.rmz.one/api/list-regions-with-societies");
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const data = await response.json();
-
-    let paths = [];
-    data.data.data.forEach(region => {
-      region.societies.forEach(society => {
-        paths.push({ params: { id: society.id.toString() } });
-      });
-    });
-
-    return { paths, fallback: 'blocking' }; // using 'blocking' for new paths generation at request time
-  } catch (error) {
-    console.error("Failed to fetch paths:", error);
-    return { paths: [], fallback: 'blocking' };
+  const response = await fetch("https://map.rmz.one/api/list-regions-with-societies");
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
   }
+  const data = await response.json();
+
+  let paths = [];
+  data.data.data.forEach(region => {
+    region.societies.forEach(society => {
+      paths.push({ params: { id: society.id.toString() } });
+    });
+  });
+
+  return { paths, fallback: 'blocking' }; // using 'blocking' for new paths generation at request time
 }
 
 
 export async function getStaticProps(context) {
   const { id } = context.params;
-  try {
-    const url = `https://map.rmz.one/api/get-society/${id}`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const societyDetails = await response.json();
-
-    return {
-      props: { societyDetails: societyDetails.data }, // passing society details as props to the page
-      revalidate: 10, // optionally use ISR
-    };
-  } catch (error) {
-    console.error("Failed to fetch society data:", error);
-    return {
-      props: { societyDetails: null }
-    };
+  const url = `https://map.rmz.one/api/get-society/${id}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
   }
+  const societyDetails = await response.json();
+
+  return {
+    props: { societyDetails: societyDetails.data }, // passing society details as props to the page
+    revalidate: 10, // optionally use ISR
+  };
 }
 
