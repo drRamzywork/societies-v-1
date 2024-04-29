@@ -13,7 +13,7 @@ const BlurFilter = ({ societyDetails }) => {
                   <div className={styles.dropShadowFilter}>
                     <div className={styles.glowFilter}>
                       <div className={styles.div1}>
-                        {societyDetails.region.name}
+                        {societyDetails?.region.name}
                       </div>
                       <div className={styles.mapWrapper}>
                         <img
@@ -28,7 +28,7 @@ const BlurFilter = ({ societyDetails }) => {
                   <div className={styles.alCommunitygmailcomParent}>
                     <div className={styles.alCommunitygmailcom}>
                       Al-community@gmail.com
-                      {societyDetails.email}
+                      {societyDetails?.email}
                     </div>
                     <div className={styles.communicationWrapper}>
                       <img
